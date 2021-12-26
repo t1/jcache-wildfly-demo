@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.github.t1</groupId>
+    <artifactId>jcache-wildfly-demo</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+    <description>Demonstrates the usage of JCache (JSR-107) in WildFly (24, 25, and 26)</description>
+
+    <properties>
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.parameters>true</maven.compiler.parameters>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+
+        <jcache.version>1.1.1</jcache.version>
+        <infinispan.version>12.1.4.Final<!--the version used in WF 25.0.1--></infinispan.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.eclipse.microprofile</groupId>
+            <artifactId>microprofile</artifactId>
+            <version>4.0.1</version>
+            <type>pom</type>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.cache</groupId>
+            <artifactId>cache-api</artifactId>
+            <version>${jcache.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.infinispan</groupId>
+            <artifactId>infinispan-jcache</artifactId>
+            <!--suppress MavenPackageUpdate -->
+            <version>${infinispan.version}</version>
+            <scope>runtime</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>infinispan-core</artifactId>
+                    <groupId>org.infinispan</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>infinispan-commons</artifactId>
+                    <groupId>org.infinispan</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.infinispan</groupId>
+            <artifactId>infinispan-cdi-embedded</artifactId>
+            <version>${infinispan.version}</version>
+            <scope>runtime</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>infinispan-commons</artifactId>
+                    <groupId>org.infinispan</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>infinispan-core</artifactId>
+                    <groupId>org.infinispan</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>ROOT</finalName>
+        <defaultGoal>verify</defaultGoal>
+    </build>
+</project>

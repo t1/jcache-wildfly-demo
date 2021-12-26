@@ -1,0 +1,14 @@
+= JCache WildFly Demo
+
+Demonstrates the usage of JCache (JSR-107) in WildFly (24, 25, and 26)
+
+I couldn't find how to use JCache annotations like `@CacheResult` on (more recent) versions of WildFly.
+These older references didn't work/help:
+
+* https://blog.sebastian-daschner.com/entries/caching-method-results-jcache
+* https://infinispan.org/docs/stable/titles/developing/developing.html#jcache_jsr_107
+* https://infinispan.org/docs/stable/titles/developing/developing.html#cdi_support
+* https://schneide.blog/2019/03/26/cache-configuration-with-wildfly-infinispan-cdi-and-jcache/ (this is not about the annotations)
+
+It's a bit tricky to use the Infinispan modules that come with WildFly while only adding those libs that are missing.
+I don't understand why JCache is not under the JavaEE, Jakarta, or MicroProfile umbrella specs.
