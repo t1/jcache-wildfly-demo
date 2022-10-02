@@ -17,7 +17,7 @@ class HelloIT {
     private static final HttpClient HTTP = HttpClient.newHttpClient();
 
     @Container @SuppressWarnings("resource")
-    static JeeContainer CONTAINER = WildflyContainer.create("rdohna/wildfly", "26.1-jdk17")
+    static JeeContainer CONTAINER = new WildflyContainer("rdohna/wildfly", "26.1-jdk17")
         .withDeployment("target/ROOT.war");
 
     @Test
