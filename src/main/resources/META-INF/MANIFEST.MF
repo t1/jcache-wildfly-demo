@@ -1,3 +1,0 @@
-Dependencies: org.infinispan.commons services,
-    org.infinispan services,
-    org.infinispan.protostream services

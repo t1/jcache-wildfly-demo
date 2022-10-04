@@ -11,4 +11,8 @@ These older references didn't work/help:
 * https://schneide.blog/2019/03/26/cache-configuration-with-wildfly-infinispan-cdi-and-jcache/ (this is not about the annotations)
 
 It's a bit tricky to use the Infinispan modules that come with WildFly while only adding those libs that are missing.
+So we simply use https://github.com/ben-manes/caffeine[caffeine].
+Note that this is not integrated very well into the WF configuration mechanisms, i.e. you'll have to use Typesafe config (see https://github.com/ben-manes/caffeine/wiki/JCache[caffeine JCache extension]).
+
 I don't understand why JCache is not under the JavaEE, Jakarta, or MicroProfile umbrella specs.
+(Yes, I've read some of the discussions).

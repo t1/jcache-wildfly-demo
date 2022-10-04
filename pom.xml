@@ -17,7 +17,6 @@
         <maven.compiler.parameters>true</maven.compiler.parameters>
 
         <jcache.version>1.1.1</jcache.version>
-        <infinispan.version>12.1.4.Final<!--the version used in WF 25.0.1--></infinispan.version>
         <surefire.version>3.0.0-M7</surefire.version>
     </properties>
 
@@ -30,42 +29,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>javax.cache</groupId>
-            <artifactId>cache-api</artifactId>
-            <version>${jcache.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.infinispan</groupId>
-            <artifactId>infinispan-jcache</artifactId>
-            <!--suppress MavenPackageUpdate -->
-            <version>${infinispan.version}</version>
-            <scope>runtime</scope>
-            <exclusions>
-                <exclusion>
-                    <artifactId>infinispan-core</artifactId>
-                    <groupId>org.infinispan</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>infinispan-commons</artifactId>
-                    <groupId>org.infinispan</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.infinispan</groupId>
-            <artifactId>infinispan-cdi-embedded</artifactId>
-            <version>${infinispan.version}</version>
-            <scope>runtime</scope>
-            <exclusions>
-                <exclusion>
-                    <artifactId>infinispan-commons</artifactId>
-                    <groupId>org.infinispan</groupId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>infinispan-core</artifactId>
-                    <groupId>org.infinispan</groupId>
-                </exclusion>
-            </exclusions>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>jcache</artifactId>
+            <version>3.1.1</version>
         </dependency>
 
         <dependency>
