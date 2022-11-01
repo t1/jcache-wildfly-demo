@@ -24,6 +24,7 @@ class HelloIT {
     void shouldGetCachedValue() throws Exception {
         var firstResponse = get();
         then(firstResponse).startsWith("hi, it's ");
+        Thread.sleep(10);
 
         var secondResponse = get();
 
